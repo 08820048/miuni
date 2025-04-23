@@ -64,138 +64,112 @@
         transform: translateY(-5px);
     }
 
-    /* 时间线样式优化 */
+    /* 时间线样式 */
     .timeline {
-        max-width: 1000px;
-        margin: 50px auto;
         position: relative;
-        padding: 20px 0;
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 20px;
     }
 
-    .timeline::before {
+    .timeline::after {
         content: '';
         position: absolute;
+        width: 4px;
+        background-color: #c4a47c;
         top: 0;
         bottom: 0;
         left: 50%;
-        width: 4px;
-        background: linear-gradient(180deg, #81B29A, #6A8C7D);
-        transform: translateX(-50%);
-        border-radius: 2px;
+        margin-left: -2px;
     }
 
     .timeline-item {
-        margin-bottom: 60px;
         position: relative;
+        width: 50%;
+        padding: 20px 40px;
+        box-sizing: border-box;
+        margin-bottom: 30px;
     }
 
-    .timeline-node {
-        width: 24px;
-        height: 24px;
-        background: #81B29A;
-        border: 4px solid #F4F1DE;
-        border-radius: 50%;
-        position: absolute;
+    /* 左侧卡片样式 */
+    .timeline-item:nth-child(odd) {
+        left: 0;
+        padding-right: 50px;
+    }
+
+    /* 右侧卡片样式 */
+    .timeline-item:nth-child(even) {
         left: 50%;
-        top: 15px;
-        transform: translateX(-50%);
-        z-index: 1;
-        box-shadow: 0 0 0 4px rgba(129, 178, 154, 0.2);
-        transition: all 0.3s ease;
+        padding-left: 50px;
     }
 
-    .timeline-item:hover .timeline-node {
-        transform: translateX(-50%) scale(1.2);
-        box-shadow: 0 0 0 6px rgba(129, 178, 154, 0.3);
-    }
-
-    .timeline-content {
-        background: white;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-        transition: all 0.3s ease;
-        max-width: 450px;
-        position: relative;
-    }
-
-    .timeline-content::before {
+    /* 时间点装饰 */
+    .timeline-item::before {
         content: '';
         position: absolute;
-        top: 20px;
         width: 20px;
         height: 20px;
-        background: white;
-        transform: rotate(45deg);
+        background-color: #c4a47c;
+        border: 4px solid #fff;
+        border-radius: 50%;
+        top: 30px;
+        z-index: 1;
     }
 
-    .timeline-item:nth-child(odd) .timeline-content::before {
-        right: -10px;
+    /* 左侧卡片时间点位置 */
+    .timeline-item:nth-child(odd)::before {
+        right: -12px;
     }
 
-    .timeline-item:nth-child(even) .timeline-content::before {
-        left: -10px;
+    /* 右侧卡片时间点位置 */
+    .timeline-item:nth-child(even)::before {
+        left: -12px;
     }
 
-    .timeline-content h2 {
-        color: #3D405B;
-        margin-top: 0;
-        font-size: 24px;
-        border-bottom: 2px solid #81B29A;
-        padding-bottom: 10px;
-        margin-bottom: 20px;
+    /* 连接线 */
+    .timeline-item::after {
+        content: '';
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        background-color: #c4a47c;
+        top: 40px;
     }
 
-    .timeline-content p {
-        line-height: 1.8;
-        color: #3D405B;
-        margin-bottom: 20px;
+    /* 左侧卡片连接线 */
+    .timeline-item:nth-child(odd)::after {
+        right: 0;
     }
 
-    .timeline-content img {
-        max-width: 100%;
-        border-radius: 10px;
-        margin: 15px 0;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
+    /* 右侧卡片连接线 */
+    .timeline-item:nth-child(even)::after {
+        left: 0;
     }
 
-    .timeline-content img:hover {
-        transform: scale(1.02);
-    }
-
-    /* 响应式优化 */
-    @media (max-width: 1200px) {
-        .page-container {
-            padding: 30px 15px;
-        }
-        
-        .page-title h1 {
-            font-size: 32px;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .timeline::before {
+    /* 响应式设计 */
+    @media screen and (max-width: 768px) {
+        .timeline::after {
             left: 30px;
         }
         
         .timeline-item {
+            width: 100%;
             padding-left: 70px;
-            padding-right: 0;
-            text-align: left;
+            padding-right: 20px;
         }
         
-        .timeline-node {
+        .timeline-item:nth-child(odd),
+        .timeline-item:nth-child(even) {
+            left: 0;
+        }
+        
+        .timeline-item::before {
+            left: 18px;
+        }
+        
+        .timeline-item::after {
             left: 30px;
-        }
-        
-        .timeline-content {
-            max-width: 100%;
-        }
-        
-        .timeline-content::before {
-            display: none;
+            width: 40px;
         }
     }
 
@@ -250,25 +224,6 @@
 
     .navbar li a:hover {
         background-color: #2CADCA;
-    }
-
-    /* 时间线内容展开/收起 */
-    .timeline-content.collapsed {
-        max-height: 100px;
-        overflow: hidden;
-    }
-
-    .timeline-content.expanded {
-        max-height: none;
-    }
-
-    .toggle-btn {
-        display: block;
-        text-align: center;
-        margin-top: 15px;
-        color: #8E715B;
-        cursor: pointer;
-        font-style: italic;
     }
 
     /* 装饰元素 */
@@ -659,6 +614,107 @@
         transform: translateY(-5px);
         box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
     }
+
+    /* 时间线内容卡片样式 */
+    .timeline-content {
+        position: relative;
+        padding: 25px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+
+    .timeline-content:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    .timeline-content h2 {
+        color: #3D405B;
+        margin-top: 0;
+        font-size: 24px;
+        border-bottom: 2px solid #c4a47c;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    .timeline-content p {
+        color: #3D405B;
+        line-height: 1.8;
+        margin-bottom: 15px;
+    }
+
+    .timeline-content strong {
+        color: #81B29A;
+    }
+
+    /* 收起状态样式 */
+    .timeline-content.collapsed {
+        max-height: 150px;
+        overflow: hidden;
+        padding-bottom: 40px;
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    }
+
+    .timeline-content.expanded {
+        max-height: none;
+        overflow: visible;
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+
+    /* 展开/收起按钮样式 */
+    .toggle-btn {
+        position: absolute;
+        bottom: 10px;
+        padding: 8px 15px;
+        background: linear-gradient(135deg, #c4a47c, #a88a69);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 2;
+    }
+
+    /* 左侧卡片按钮位置 */
+    .timeline-item:nth-child(odd) .toggle-btn {
+        right: 20px;
+    }
+
+    /* 右侧卡片按钮位置 */
+    .timeline-item:nth-child(even) .toggle-btn {
+        left: 20px;
+    }
+
+    .toggle-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        background: linear-gradient(135deg, #a88a69, #8e715b);
+    }
+
+    /* 列表样式优化 */
+    .timeline-content ul {
+        padding-left: 20px;
+        margin: 15px 0;
+    }
+
+    .timeline-content ul li {
+        color: #3D405B;
+        line-height: 1.6;
+        margin-bottom: 8px;
+        position: relative;
+    }
+
+    .timeline-content ul li::before {
+        content: '•';
+        color: #c4a47c;
+        font-weight: bold;
+        position: absolute;
+        left: -15px;
+    }
 </style>
 <script type="text/javascript">
 function MM_swapImgRestore() { //v3.0
@@ -733,19 +789,17 @@ function MM_swapImage() { //v3.0
     <div class="timeline">
         <!-- 时间线节点：童年与艺术萌芽 -->
         <div class="timeline-item">
-            <div class="timeline-node"></div>
             <div class="timeline-content collapsed">
                 <h2>1860–1870年：童年与艺术萌芽</h2>
                 <p><strong>1860年7月24日</strong></p>
                 <p>出生于奥匈帝国摩拉维亚的伊万契采（今捷克），父亲是法院职员，家境贫寒。</p>
                 <p>幼年展露绘画天赋，常在教堂画圣像，但因经济拮据，12岁被送往布尔诺（Brno）的教堂唱诗班谋生。</p>
             </div>
-            <span class="toggle-btn" onclick="toggleContent(this.previousElementSibling)">展开内容</span>
+            <button class="toggle-btn" onclick="toggleContent(this)">展开内容</button>
         </div>
 
         <!-- 时间线节点：转折与巴黎求学 -->
         <div class="timeline-item">
-            <div class="timeline-node"></div>
             <div class="timeline-content collapsed">
                 <h2>1870–1880年：转折与巴黎求学</h2>
                 <p><strong>1875年</strong></p>
@@ -755,12 +809,11 @@ function MM_swapImage() { //v3.0
                 <p><strong>1883年</strong></p>
                 <p>受奥地利贵族<strong>库恩·贝拉西伯爵（Count Khuen-Belasi）</strong>赏识，受邀为其城堡绘制壁画。伯爵资助其进入慕尼黑美术学院，系统学习学院派绘画，受历史题材与象征主义影响。</p>
             </div>
-            <span class="toggle-btn" onclick="toggleContent(this.previousElementSibling)">展开内容</span>
+            <button class="toggle-btn" onclick="toggleContent(this)">展开内容</button>
         </div>
 
         <!-- 时间线节点：新艺术运动与"穆夏风格"巅峰 -->
         <div class="timeline-item">
-            <div class="timeline-node"></div>
             <div class="timeline-content collapsed">
                 <h2>1890年：新艺术运动与"穆夏风格"巅峰</h2>
                 <p><strong>1894年（圣诞夜）</strong></p>
@@ -780,12 +833,11 @@ function MM_swapImage() { //v3.0
                 </ul>
                 <p>1897年巴黎个展：展出百余幅作品，并出版《装饰文档》（Documents Décoratifs），被奉为新艺术运动设计指南。</p>
             </div>
-            <span class="toggle-btn" onclick="toggleContent(this.previousElementSibling)">展开内容</span>
+            <button class="toggle-btn" onclick="toggleContent(this)">展开内容</button>
         </div>
 
         <!-- 时间线节点：民族觉醒与转向史诗创作 -->
         <div class="timeline-item">
-            <div class="timeline-node"></div>
             <div class="timeline-content collapsed">
                 <h2>1900–1910年：民族觉醒与转向史诗创作</h2>
                 <p><strong>1900年（巴黎世界博览会）</strong></p>
@@ -794,12 +846,11 @@ function MM_swapImage() { //v3.0
                 <p>首次访美：受美国富豪查尔斯·克莱恩（Charles R. Crane）资助，结识捷克独立运动者，决心创作《斯拉夫史诗》。</p>
                 <p>婚姻与家庭：1906年与捷克学生玛丽亚·希蒂洛娃结婚，育有两子，家庭成为其民族情感的寄托。</p>
             </div>
-            <span class="toggle-btn" onclick="toggleContent(this.previousElementSibling)">展开内容</span>
+            <button class="toggle-btn" onclick="toggleContent(this)">展开内容</button>
         </div>
 
         <!-- 时间线节点：《斯拉夫史诗》与民族使命 -->
         <div class="timeline-item">
-            <div class="timeline-node"></div>
             <div class="timeline-content collapsed">
                 <h2>1910–1928年：《斯拉夫史诗》与民族使命</h2>
                 <p><strong>1910年</strong></p>
@@ -811,12 +862,11 @@ function MM_swapImage() { //v3.0
                 <p><strong>1928年</strong></p>
                 <p>完成《斯拉夫史诗》，捐赠给布拉格市政府，但因现代主义艺术兴起，作品被批评为"过时的浪漫主义"。</p>
             </div>
-            <span class="toggle-btn" onclick="toggleContent(this.previousElementSibling)">展开内容</span>
+            <button class="toggle-btn" onclick="toggleContent(this)">展开内容</button>
         </div>
 
         <!-- 时间线节点：晚年困境与遗产 -->
         <div class="timeline-item">
-            <div class="timeline-node"></div>
             <div class="timeline-content collapsed">
                 <h2>1930–1939年：晚年困境与遗产</h2>
                 <p><strong>1930年</strong></p>
@@ -827,7 +877,7 @@ function MM_swapImage() { //v3.0
                 <p>纳粹占领捷克，因《斯拉夫史诗》的民族主义主题与共济会成员身份，遭盖世太保逮捕审讯，健康恶化。</p>
                 <p>7月14日 因肺炎逝世，葬礼低调举行，墓碑刻有"灵魂永属斯拉夫"字样。</p>
             </div>
-            <span class="toggle-btn" onclick="toggleContent(this.previousElementSibling)">展开内容</span>
+            <button class="toggle-btn" onclick="toggleContent(this)">展开内容</button>
         </div>
     </div>
 
@@ -934,11 +984,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 </body>
 <script type="text/javascript">
-    function toggleContent(element) {
-        element.classList.toggle('expanded');
-        element.classList.toggle('collapsed');
-        const btn = element.nextElementSibling;
-        btn.textContent = element.classList.contains('collapsed') ? '展开内容' : '收起内容';
+    function toggleContent(button) {
+        const contentDiv = button.previousElementSibling;
+        const isCollapsed = contentDiv.classList.contains('collapsed');
+        
+        contentDiv.classList.toggle('collapsed');
+        contentDiv.classList.toggle('expanded');
+        
+        button.textContent = isCollapsed ? '收起内容' : '展开内容';
     }
+
+    // 页面加载时确保所有内容都是收起状态
+    document.addEventListener('DOMContentLoaded', function() {
+        const contents = document.querySelectorAll('.timeline-content');
+        contents.forEach(content => {
+            content.classList.add('collapsed');
+            content.classList.remove('expanded');
+        });
+        
+        const buttons = document.querySelectorAll('.toggle-btn');
+        buttons.forEach(button => {
+            button.textContent = '展开内容';
+        });
+    });
 </script>
 </html>
