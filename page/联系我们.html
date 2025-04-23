@@ -4,376 +4,429 @@
 <meta charset="utf-8">
 <title> 联系我们</title>
 <style type="text/css">
-    .bj {
-        background-color: #F4F1DE; /* 柔和的背景色 */
-        font-family: "Georgia", serif; /* 优雅的字体 */
-        color: #3D405B; /* 深色文字 */
+    /* 基础样式 */
+    body {
+        margin: 0;
+        min-height: 100vh;
+        position: relative;
+        padding-top: 80px;
+        padding-bottom: 60px;
+        box-sizing: border-box;
+        background-color: #F4F1DE;
+        font-family: "Georgia", serif;
+        color: #3D405B;
         font-size: 18px;
         text-align: left;
     }
-	/* 新增下拉菜单样式 */
-.dropdown {
-  
-    position: relative;
-    display: inline-block;  /* 确保定位基准正确 */
-}
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #81B29A;
-    min-width: 160px;
-    border-radius: 10px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    top: 100%;
-    left: 0;
-    margin-top: 5px;
-}
+    /* Header样式 */
+    .header-container {
+        background: #FFFFFF;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        padding: 8px 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        height: auto;
+    }
 
-.dropdown-content a {
-    color: #3D405B;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    transition: background-color 0.3s;
-}
+    .header-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-.dropdown-content a:hover {
-    background-color: #6A8B7D;
-}
-	
+    .logo-section {
+        flex: 0 0 auto;
+    }
 
-.show {
-    display: block;
-    animation: slideDown 0.3s ease-out;
-}
+    .logo-section img {
+        max-height: 45px;
+        width: auto;
+    }
 
-@keyframes slideDown {
-    from {opacity: 0; transform: translateY(-10px);}
-    to {opacity: 1; transform: translateY(0);}
-}
-	.feedback-container {
-    background: #3D405B;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-	.form-layer1 {
-    padding: 20px;
-    background: linear-gradient(145deg, #F2CC8F 0%, #E7B279 100%);
-}
-	.form-layer2 {
-    background: #3D405B;
-    border-radius: 12px;
-    padding: 15px;
-}
-	.form-content {
-    background: #B8D0A8;
-    border-radius: 10px;
-    padding: 25px;
-}
-	.form-inner {
-    margin: 0 auto;
-}
+    /* 导航按钮样式 */
+    .nav-buttons {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
 
-.form-header {
-    text-align: center;
-    padding: 15px 0;
-}
-	.form-logo {
-    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
-}
+    .nav-button {
+        padding: 6px 16px;
+        font-size: 14px;
+        min-width: 80px;
+        background: linear-gradient(90deg, #81B29A, #6A8C7D, #81B29A);
+        background-size: 200% 100%;
+        color: #FFFFFF;
+        border: none;
+        border-radius: 20px;
+        font-family: 'Georgia', serif;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
 
-.form-body {
-    padding: 20px 15px;
-}
+    .nav-button:hover {
+        animation: buttonShine 1.5s linear infinite;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        transform: translateY(-2px);
+    }
 
-.form-group {
-    margin-bottom: 25px;
-}
+    .nav-button:active {
+        transform: translateY(1px);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
 
-.form-label {
-    display: block;
-    color: #3D405B;
-    font-weight: bold;
-    margin-bottom: 10px;
-    font-size: 18px;
-}
-	.form-input {
-    padding: 12px 20px;
-    border: 2px solid #3D405B;
-    border-radius: 25px;
-    background: #F4F1DE;
-    font-size: 16px;
-    transition: all 0.3s ease;
-}
+    /* 下拉菜单样式 */
+    .nav-dropdown {
+        position: relative;
+    }
 
-.form-input:focus {
-    border-color: #81B29A;
-    box-shadow: 0 0 12px rgba(129,178,154,0.3);
-    outline: none;
-}
-
-.submit-btn {
-    background: #81B29A;
-    color: white;
-    padding: 12px 40px;
-    border: none;
-    border-radius: 30px;
-    font-size: 17px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: block;
-    margin: 0 auto;
-}
-
-.submit-btn:hover {
-    background: #6A8C7D;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-    .yj {
-        border: solid 0px;
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #81B29A;
+        min-width: 160px;
         border-radius: 10px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        top: 100%;
+        left: 0;
+        margin-top: 5px;
     }
-    .bj2 {
-        background-color: #E4D04A;
+
+    .dropdown-content a {
+        color: #3D405B;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        transition: background-color 0.3s;
     }
-    .yj2 {
-        border: solid 0px;
-        border-radius: 50px;
+
+    .dropdown-content a:hover {
+        background-color: #6A8B7D;
     }
-    .yj2:hover {
-        transform: scale(1.1, 1.1);
-        transition: all 0.2s;
+
+    .show {
+        display: block;
+        animation: slideDown 0.3s ease-out;
     }
-    .yj3 {
-        border: solid 0px;
-        border-radius: 50px;
-        font-family: "Georgia", serif; /* 优雅的字体 */
+
+    @keyframes slideDown {
+        from {opacity: 0; transform: translateY(-10px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Footer样式 */
+    .footer-container {
+        background: #FFFFFF;
+        padding: 10px 0;
+        box-shadow: 0 -2px 15px rgba(0,0,0,0.1);
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .footer-content {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        gap: 10px;
+    }
+
+    .footer-logo {
+        flex: 0 0 auto;
+    }
+
+    .footer-logo img {
+        max-height: 30px;
+        width: auto;
+    }
+
+    .footer-info {
+        flex: 1;
+        text-align: center;
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .footer-info p {
+        margin: 1px 0;
+        font-size: 12px;
+        line-height: 1.3;
+    }
+
+    .footer-qrcode {
+        flex: 0 0 auto;
+    }
+
+    .footer-qrcode img {
+        width: 25px;
+        height: 25px;
+        border-radius: 6px;
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+        body {
+            padding-bottom: 80px;
+        }
+
+        .footer-content {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .footer-info {
+            order: 2;
+            flex: 0 0 100%;
+            font-size: 11px;
+        }
+
+        .footer-logo {
+            order: 1;
+        }
+
+        .footer-qrcode {
+            order: 3;
+        }
+    }
+
+    /* 表单样式 */
+    .feedback-container {
+        background: #3D405B;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        margin: 20px auto;
+        max-width: 580px;
+    }
+
+    .form-layer1 {
+        padding: 20px;
+        background: linear-gradient(145deg, #F2CC8F 0%, #E7B279 100%);
+    }
+
+    .form-layer2 {
+        background: #3D405B;
+        border-radius: 12px;
+        padding: 15px;
+    }
+
+    .form-content {
+        background: #B8D0A8;
+        border-radius: 10px;
+        padding: 25px;
+    }
+
+    .form-inner {
+        margin: 0 auto;
+    }
+
+    .form-header {
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    .form-logo {
+        filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+    }
+
+    .form-body {
+        padding: 20px 15px;
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    .form-label {
+        display: block;
+        color: #3D405B;
+        font-weight: bold;
+        margin-bottom: 10px;
         font-size: 18px;
     }
-    .bs {
-        border: solid 0px;
-        border-radius: 10px;
+
+    .form-input {
+        padding: 12px 20px;
+        border: 2px solid #3D405B;
+        border-radius: 25px;
+        background: #F4F1DE;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        width: 100%;
+        box-sizing: border-box;
     }
-    .bs:hover {
-        background-color: #B8AC3E;
-        transition: all 0.2s;
+
+    .form-input:focus {
+        border-color: #81B29A;
+        box-shadow: 0 0 12px rgba(129,178,154,0.3);
+        outline: none;
     }
-    .bs2 {
-        border: solid 0px;
-    border-radius: 10px; /* 确保所有标题都有圆角 */
-    transition: all 0.3s;
-    cursor: pointer;
-    background-color: #81B29A; /* 统一背景色 */
-    color: #FFFFFF; /* 统一文字颜色 */
+
+    .submit-btn {
+        background: #81B29A;
+        color: white;
+        padding: 12px 40px;
+        border: none;
+        border-radius: 30px;
+        font-size: 17px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: block;
+        margin: 0 auto;
     }
-    .bs2:hover {
-        background-color: #81B29A; /* 新艺术风格的主色调 */
-        transition: all 0.2s;
-    }
-    #gd {
-        border: solid 0px;
-        border-radius: 10px;
-    }
-    #gd:hover {
-        transform: scale(1, 1);
-        transition: 0.2s;
-    }
-    .wbj {
-        margin-right: 110px;
-    }
-    a:link {
-        color: #3D405B; /* 深色链接 */
-        text-decoration: none;
-    }
-    a:active {
-        color: #FFFFFF;
+
+    .submit-btn:hover {
+        background: #6A8C7D;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 </style>
 <link rel="shortcut icon" href="imge/ico.png">
+<link rel="stylesheet" href="common.css">
 </head>
 
-<body class="bj"     background="../image/横/3.jpg" >
-    <table width="200" border="0" align="center">
-        <tbody>
-            <tr>
-                <table width="800" border="0" align="center">
-        <tbody>
-          <tr>
-            <td height="101" bgcolor="#FFFFFF" class="yj"><table  width="800"border="0" align="center">
-              <tbody>
-                <tr>
-                  <td height="95" rowspan="2" align="left" valign="top"><img src="../image/logo/LOGO.jpg" width="464" height="73" alt=""/></td>
-                  <td valign="top"><table width="596" height="45" border="0" align="right" cellspacing="10">
-                    <tbody>
-                      <tr bgcolor="#81B29A" style="color: #FFFFFF; font-family: 'Georgia', serif;">
-                        <td width="134" align="center" class="bs2"><a href="首页.html">首页</a></td>
-                        <td width="133" align="center" class="bs2"><a href="作品展示.html">作品展示</a></td>
-                        <td width="139" align="center" class="bs2"><a href="read me.html">readme</a></td>
-                        <td width="132" align="center" class="bs2"><a href="登录.html">登录</a></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                    <p>&nbsp;</p></td>
-                </tr>
-                <tr>
-                  <td valign="top"><table width="596" height="45" border="0" align="right" cellspacing="10">
-                    <tbody>
-                      <tr bgcolor="" style="color: #FFFFFF; font-family: 'Georgia', serif;">
-                        <td width="134" align="center" class="bs2"><a href="关于穆夏.html">关于穆夏</a></td>
-                        <td width="134" align="center" class="bs2 dropdown" onclick="toggleDropdown(event)">
-                          <a href="巴洛克艺术.html">巴洛克艺术</a>
-                          <div class="dropdown-content" id="baroqueDropdown">
-                            <a href="#origin">起源</a>
-                            <a href="#features">特点</a>
-                            <a href="#masterpieces">代表作品</a>
-                            <a href="#influence">影响</a>
-                          </div>
-                        </td>
-                        <td width="149" align="center" class="bs2 dropdown" onclick="toggleDropdown(event)">
-                          <a href="洛可可艺术.html">洛可可艺术</a>
-                          <div class="dropdown-content" id="rococoDropdown">
-                            <a href="#rococo-origin">起源</a>
-                            <a href="#rococo-features">特点</a>
-                            <a href="#rococo-masterpieces">代表作品</a>
-                            <a href="#rococo-influence">影响</a>
-                          </div>
-                        </td>
-                        <td width="121" align="center" class="bs2"><a href="联系我们.html">联系我们</a></td>
-                      </tr>
-                    </tbody>
-                  </table></td>
-                </tr>
-              </tbody>
-            </table></td>
-          </tr>
-        </tbody>
-      </table>
-            </tr>
-        </tbody>
-    </table>
-    <br>
+<body class="bj" background="../image/横/3.jpg">
+    <!-- Header -->
+    <div class="header-container">
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="../image/logo/LOGO.jpg" alt="Logo">
+            </div>
+            <nav class="nav-buttons">
+                <a href="首页.html" class="nav-button">首页</a>
+                <a href="作品展示.html" class="nav-button">作品展示</a>
+                <a href="read me.html" class="nav-button">readme</a>
+                <a href="登录.html" class="nav-button">登录</a>
+                <a href="关于穆夏.html" class="nav-button">关于穆夏</a>
+                <div class="nav-dropdown">
+                    <a href="巴洛克艺术.html" class="nav-button">巴洛克艺术</a>
+                    <div class="dropdown-content">
+                        <a href="#origin">起源</a>
+                        <a href="#features">特点</a>
+                        <a href="#masterpieces">代表作品</a>
+                        <a href="#influence">影响</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="洛可可艺术.html" class="nav-button">洛可可艺术</a>
+                    <div class="dropdown-content">
+                        <a href="#rococo-origin">起源</a>
+                        <a href="#rococo-features">特点</a>
+                        <a href="#rococo-masterpieces">代表作品</a>
+                        <a href="#rococo-influence">影响</a>
+                    </div>
+                </div>
+                <a href="联系我们.html" class="nav-button">联系我们</a>
+            </nav>
+        </div>
+    </div>
 
     <!-- 反馈表单 -->
-<table width="580" height="441" border="0" align="center" class="feedback-container">
-    <tbody>
-        <tr>
-            <td height="441" width="350"valign="top"   >
-                <table width="576" height="460" border="0" align="center" class="form-layer2">
-                    <tbody>
-                        <tr>
-                            <td width="572" height="244" valign="top" class="form-content">
-                                <table width="471" height="476" border="0" align="center" class="form-inner">
-                                    <tbody>
-                                        <tr>
-                                            <td height="80" class="form-header">
-                                                <img src="../image/logo/LOGO.jpg" width="300" height="50" alt="阿尔丰斯·穆夏艺术馆" class="form-logo">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td height="300" valign="top" class="form-body">
-                                                <div class="form-group">
-                                                    <label class="form-label">意见反馈：</label>
-                                                    <textarea class="form-input" rows="8" cols="70" 
-                                                        placeholder="请输入您的意见或建议" 
-                                                        style="width: 100%; box-sizing: border-box;"></textarea>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="form-label">电子邮箱：</label>
-                                                    <input type="email" class="form-input" 
-                                                        placeholder="请输入您的邮箱"
-                                                        style="width: 70%; min-width: 250px;">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td height="50" class="form-footer">
-                                                <button type="button" class="submit-btn">发送反馈</button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-    </tbody>
-</table>
-    <p>&nbsp;</p>
-    <br>
+    <div class="feedback-container">
+        <div class="form-layer2">
+            <div class="form-content">
+                <div class="form-inner">
+                    <div class="form-header">
+                        <img src="../image/logo/LOGO.jpg" width="300" height="50" alt="阿尔丰斯·穆夏艺术馆" class="form-logo">
+                    </div>
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="form-label">意见反馈：</label>
+                            <textarea class="form-input" rows="8" placeholder="请输入您的意见或建议"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">电子邮箱：</label>
+                            <input type="email" class="form-input" placeholder="请输入您的邮箱">
+                        </div>
+                        <button type="button" class="submit-btn">发送反馈</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- 页脚 -->
-    <table width="200" border="0" align="center">
-        <tbody>
-            <tr>
-                <td height="107" valign="top" bgcolor="#FFFFFF" class="yj">
-                    <table width="1366" border="0" align="center">
-                        <tbody>
-                            <tr>
-                                <td height="76" align="left" valign="top">
-                                    <img src="../image/logo/LOGO.jpg" width="464" height="73" alt="阿尔丰斯·穆夏艺术馆" />
-                                </td>
-                                <td valign="top" style="color: #000000">
-                                    <p>©&nbsp;&nbsp; 2025 FUNRIGHT。该网站所有商标均为李姚所有</p>
-                                    <p>学号：211008404112 </p>
-                                    <p>班别：数媒2142 </p>
-                                    <p>姓名：李姚</p>
-                                </td>
-                                <td align="center" valign="top" style="color: #000000">
-                                    <img src="../image/logo/真趣完成.jpg" width="40" height="40" alt="图标" />
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-	<script>
-// 增强版下拉菜单控制
-document.querySelectorAll('.dropdown').forEach(dropdown => {
-    dropdown.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const menu = this.querySelector('.dropdown-content');
-        const isOpen = menu.classList.contains('show');
-        
-        // 关闭所有其他菜单
-        document.querySelectorAll('.dropdown-content').forEach(otherMenu => {
-            if(otherMenu !== menu) otherMenu.classList.remove('show');
-        });
-        
-        // 切换当前菜单
-        menu.classList.toggle('show', !isOpen);
-    });
-});
+    <!-- Footer -->
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="../image/logo/LOGO.jpg" alt="Logo">
+            </div>
+            <div class="footer-info">
+                <p>©&nbsp;&nbsp; 2025 FUNRIGHT。该网站所有商标均为李姚所有</p>
+                <p>学号：211008404112</p>
+                <p>班别：数媒2142</p>
+                <p>姓名：李姚</p>
+            </div>
+            <div class="footer-qrcode">
+                <img src="../image/logo/真趣完成.jpg" alt="QR Code">
+            </div>
+        </div>
+    </div>
 
-// 优化全局点击监听
-document.addEventListener('click', function(e) {
-    if (!e.target.closest('.dropdown')) {
-        document.querySelectorAll('.dropdown-content').forEach(menu => {
-            menu.classList.remove('show');
-        });
-    }
-});
-
-// 增强锚点滚动
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.hash);
-        if(target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+    <script>
+    // 增强版下拉菜单控制
+    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+        dropdown.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const menu = this.querySelector('.dropdown-content');
+            const isOpen = menu.classList.contains('show');
+            
+            // 关闭所有其他菜单
+            document.querySelectorAll('.dropdown-content').forEach(otherMenu => {
+                if(otherMenu !== menu) otherMenu.classList.remove('show');
             });
-            history.replaceState(null, null, this.hash);  // 更新地址栏hash
+            
+            // 切换当前菜单
+            menu.classList.toggle('show', !isOpen);
+        });
+    });
+
+    // 优化全局点击监听
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav-dropdown')) {
+            document.querySelectorAll('.dropdown-content').forEach(menu => {
+                menu.classList.remove('show');
+            });
         }
     });
-});
-</script>
+
+    // 增强锚点滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.hash);
+            if(target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                history.replaceState(null, null, this.hash);  // 更新地址栏hash
+            }
+        });
+    });
+    </script>
 </body>
 </html>

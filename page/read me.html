@@ -94,23 +94,11 @@
             position: relative;
             width: 100%;
             margin-bottom: 40px;
-        }
-        
-        .page-title-container::before, 
-        .page-title-container::after {
-            content: "";
-            position: absolute;
-            height: 3px;
-            width: 100%;
-            background: linear-gradient(to right, transparent, #81B29A, transparent);
-        }
-        
-        .page-title-container::before {
-            top: -10px;
-        }
-        
-        .page-title-container::after {
-            bottom: -10px;
+            text-align: center;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         .page-title {
@@ -121,6 +109,8 @@
             margin: 20px 0;
             padding: 15px 0;
             position: relative;
+            display: inline-block;
+            width: auto;
         }
         
         .page-title::before, 
@@ -131,14 +121,30 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
+            white-space: nowrap;
         }
         
         .page-title::before {
-            left: 20%;
+            right: 100%;
+            margin-right: 15px;
         }
         
         .page-title::after {
-            right: 20%;
+            left: 100%;
+            margin-left: 15px;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 28px;
+                padding: 10px 30px;
+            }
+            
+            .page-title::before, 
+            .page-title::after {
+                font-size: 20px;
+            }
         }
         
         .art-nouveau-border {
@@ -355,114 +361,46 @@
 	</style>
 	
 	<link rel="shortcut icon" href="imge/ico.png">
-	<style type="text/css">
-	.bs21 {    border: solid 0px;
-    border-radius: 10px; /* 确保所有标题都有圆角 */
-    transition: all 0.3s;
-    cursor: pointer;
-    background-color: #81B29A; /* 统一背景色 */
-    color: #FFFFFF; /* 统一文字颜色 */
-}
-.dropdown {  
-    position: relative;
-    display: inline-block;  /* 确保定位基准正确 */
-}
-.dropdown-content {    display: none;
-    position: absolute;
-    background-color: #81B29A;
-    min-width: 160px;
-    border-radius: 10px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    top: 100%;
-    left: 0;
-    margin-top: 5px;
-}
-		.dropdown-content a {
-    color: #3D405B;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    transition: background-color 0.3s;
-}
-
-.dropdown-content a:hover {
-    background-color: #6A8B7D;
-}
-	.show {
-    display: block;
-    animation: slideDown 0.3s ease-out;
-}
-
-@keyframes slideDown {
-    from {opacity: 0; transform: translateY(-10px);}
-    to {opacity: 1; transform: translateY(0);}
-}
-    </style>
+	<link rel="stylesheet" href="common.css">
 </head>
 
 
 <body class="bj">
-<table width="221" border="0" align="center">
-  <tbody>
-    <tr>
-      <td height="101" bgcolor="#FFFFFF" class="yj"><table width="800" border="0" align="center">
-        <tbody>
-          <tr>
-            <td height="101" bgcolor="#FFFFFF" class="yj"><table  width="800"border="0" align="center">
-              <tbody>
-                <tr>
-                  <td height="95" rowspan="2" align="left" valign="top"><img src="../image/logo/LOGO.jpg" width="464" height="73" alt=""/></td>
-                  <td valign="top"><table width="596" height="45" border="0" align="right" cellspacing="10">
-                    <tbody>
-                      <tr bgcolor="#81B29A" style="color: #FFFFFF; font-family: 'Georgia', serif;">
-                        <td width="134" align="center" class="bs2"><a href="首页.html">首页</a></td>
-                        <td width="133" align="center" class="bs2"><a href="作品展示.html">作品展示</a></td>
-                        <td width="139" align="center" class="bs2"><a href="read me.html">readme</a></td>
-                        <td width="132" align="center" class="bs2"><a href="登录.html">登录</a></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                    <p>&nbsp;</p></td>
-                </tr>
-                <tr>
-                  <td valign="top"><table width="596" height="45" border="0" align="right" cellspacing="10">
-                    <tbody>
-                      <tr bgcolor="" style="color: #FFFFFF; font-family: 'Georgia', serif;">
-                        <td width="134" align="center" class="bs2"><a href="关于穆夏.html">关于穆夏</a></td>
-                        <td width="134" align="center" class="bs2 dropdown" onclick="toggleDropdown(event)">
-                          <a href="巴洛克艺术.html">巴洛克艺术</a>
-                          <div class="dropdown-content" id="baroqueDropdown">
-                            <a href="#origin">起源</a>
-                            <a href="#features">特点</a>
-                            <a href="#masterpieces">代表作品</a>
-                            <a href="#influence">影响</a>
-                          </div>
-                        </td>
-                        <td width="149" align="center" class="bs2 dropdown" onclick="toggleDropdown(event)">
-                          <a href="洛可可艺术.html">洛可可艺术</a>
-                          <div class="dropdown-content" id="rococoDropdown">
-                            <a href="#rococo-origin">起源</a>
-                            <a href="#rococo-features">特点</a>
-                            <a href="#rococo-masterpieces">代表作品</a>
-                            <a href="#rococo-influence">影响</a>
-                          </div>
-                        </td>
-                        <td width="121" align="center" class="bs2"><a href="联系我们.html">联系我们</a></td>
-                      </tr>
-                    </tbody>
-                  </table></td>
-                </tr>
-              </tbody>
-            </table></td>
-          </tr>
-        </tbody>
-      </table></td>
-    </tr>
-  </tbody>
-</table>
-<br>
-	
+<!-- Header -->
+<div class="header-container">
+    <div class="header-content">
+        <div class="logo-section">
+            <img src="../image/logo/LOGO.jpg" alt="Logo">
+        </div>
+        <nav class="nav-buttons">
+            <a href="首页.html" class="nav-button">首页</a>
+            <a href="作品展示.html" class="nav-button">作品展示</a>
+            <a href="read me.html" class="nav-button">readme</a>
+            <a href="登录.html" class="nav-button">登录</a>
+            <a href="关于穆夏.html" class="nav-button">关于穆夏</a>
+            <div class="nav-dropdown">
+                <a href="巴洛克艺术.html" class="nav-button">巴洛克艺术</a>
+                <div class="dropdown-content">
+                    <a href="#origin">起源</a>
+                    <a href="#features">特点</a>
+                    <a href="#masterpieces">代表作品</a>
+                    <a href="#influence">影响</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <a href="洛可可艺术.html" class="nav-button">洛可可艺术</a>
+                <div class="dropdown-content">
+                    <a href="#rococo-origin">起源</a>
+                    <a href="#rococo-features">特点</a>
+                    <a href="#rococo-masterpieces">代表作品</a>
+                    <a href="#rococo-influence">影响</a>
+                </div>
+            </div>
+            <a href="联系我们.html" class="nav-button">联系我们</a>
+        </nav>
+    </div>
+</div>
+
 <!-- 背景装饰图案 -->
 <div class="art-nouveau-bg-pattern"></div>
 
@@ -494,26 +432,24 @@
   </div>
 </div>
 <!-- 新的内容区域结束 -->
-	
-	<table width="200" border="0" align="center">
-	  <tbody>
-	    <tr>
-      <td height="55" valign="top" bgcolor="#FFFFFF" class="yj">
-		  <table width="1366" border="0" align="center">
-  <tbody>
-    <tr>
-      <td height="76" align="left" valign="top"><img src="../image/logo/LOGO.jpg" width="464" height="73" alt=""/></td>
-      <td valign="top" style="color: #000000"><p>©&nbsp;&nbsp; 2025 FUNRIGHT。该网站所有商标均为李姚所有</p>
-        <p>学号：211008404112 </p>
-        <p>班别：数媒2142 </p>
-        <p>姓名：李姚</p></td>
-      <td align="center" valign="top" style="color: #000000"><img src="../image/logo/真趣完成.jpg" width="40" height="40" alt=""/></td>
-    </tr>
-  </tbody>
-</table></td>
-    </tr>
-      </tbody>
-</table>
+
+<!-- Footer -->
+<div class="footer-container">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="../image/logo/LOGO.jpg" alt="Logo">
+        </div>
+        <div class="footer-info">
+            <p>©&nbsp;&nbsp; 2025 FUNRIGHT。该网站所有商标均为李姚所有</p>
+            <p>学号：211008404112</p>
+            <p>班别：数媒2142</p>
+            <p>姓名：李姚</p>
+        </div>
+        <div class="footer-qrcode">
+            <img src="../image/logo/真趣完成.jpg" alt="QR Code">
+        </div>
+    </div>
+</div>
 
 <script>
 // 增强版下拉菜单控制
@@ -556,7 +492,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-</script>
 </script>
 </body>
 </html>
