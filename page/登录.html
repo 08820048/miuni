@@ -1,0 +1,777 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>登录</title>
+<link rel="stylesheet" href="common.css">
+<style type="text/css">
+    .bj {
+        background-color: #F4F1DE; /* 柔和的背景色 */
+        font-family: "Georgia", serif; /* 优雅的字体 */
+        color: #3D405B; /* 深色文字 */
+        font-size: 18px;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+    }
+	
+    .yj {
+       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    }
+	.login-container {
+    background: linear-gradient(145deg, #F4F1DE 0%, #E7B279 100%);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    max-width: 500px;
+    width: 90%;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+	.login-box {
+    background: rgba(61, 64, 91, 0.95);
+    padding: 35px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    box-sizing: border-box;
+}
+	.login-content {
+    background: rgba(184, 208, 168, 0.9);
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 100%;
+    box-sizing: border-box;
+}
+	.input-group {
+    margin: 15px 0;
+    width: 100%;
+}
+	.input-group input {
+    width: calc(100% - 40px);
+    padding: 12px 20px;
+    margin: 5px 0;
+    border: 2px solid #3D405B;
+    border-radius: 30px;
+    background: rgba(244, 241, 222, 0.9);
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+	.input-group input:focus {
+    outline: none;
+    border-color: #81B29A;
+    box-shadow: 0 0 12px rgba(129,178,154,0.4);
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.95);
+}
+	.login-btn {
+    background: linear-gradient(90deg, #81B29A, #6A8C7D, #81B29A);
+    background-size: 200% 100%;
+    color: #FFFFFF !important;
+    padding: 12px 40px !important;
+    border-radius: 30px;
+    font-weight: bold !important;
+    cursor: pointer;
+    text-decoration: none !important;
+    display: block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: none;
+    width: 80%;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+	.login-btn:hover {
+    animation: buttonShine 1.5s linear infinite;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transform: translateY(-2px);
+}
+	.login-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+	.title {
+    color: #3D405B !important;
+    font-family: 'Georgia', serif !important;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.links {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.links a {
+    color: #3D405B !important;
+    text-decoration: none;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+.links a:hover {
+    color: #81B29A !important;
+    background: rgba(129,178,154,0.1);
+    transform: translateY(-2px);
+}
+	
+    .bj2 {
+        background-color: #E4D04A;
+    }
+    .yj2 {
+        border: solid 0px;
+        border-radius: 100px;
+    }
+    .yj2:hover {
+        transform: scale(1.1, 1.1);
+        transition: all 0.2s;
+    }
+    .yj3 {
+        border: solid 0px;
+        border-radius: 50px;
+        font-family: "Georgia", serif; /* 优雅的字体 */
+        font-size: 18px;
+    }
+    .bs {
+        border: solid 0px;
+        border-radius: 10px;
+    }
+    .bs:hover {
+        background-color: #B8AC3E;
+        transition: all 0.2s;
+    }
+    .bs2 {
+        border: solid 0px;
+    border-radius: 10px; /* 确保所有标题都有圆角 */
+    transition: all 0.3s;
+    cursor: pointer;
+    background-color: #81B29A; /* 统一背景色 */
+    color: #FFFFFF; /* 统一文字颜色 */
+    }
+    .bs2:hover {
+    background-color: #81B29A; /* 新艺术风格的主色调 */
+    transition: all 0.2s;
+    color: #FFFFFF;
+    }
+    #gd {
+        border: solid 0px;
+        border-radius: 10px;
+    }
+    #gd:hover {
+        transform: scale(1, 1);
+        transition: 0.2s;
+    }
+    .wbj {
+        margin-right: 110px;
+    }
+    a:link {
+        color: #3D405B; /* 深色链接 */
+        text-decoration: none;
+    }
+    a:active {
+        color: #FFFFFF;
+    }
+	/* 新增下拉菜单样式 */
+.dropdown {
+  
+    position: relative;
+    display: inline-block;  /* 确保定位基准正确 */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #81B29A;
+    min-width: 160px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    margin-top: 5px;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 20px;
+    color: #3D405B;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 2px 8px;
+    border-radius: 8px;
+    position: relative;
+    background: linear-gradient(90deg, transparent, transparent);
+    background-size: 200% 100%;
+}
+
+.dropdown-content a:hover {
+    background: linear-gradient(90deg, #81B29A, #6A8C7D);
+    color: #FFFFFF;
+    transform: translateX(5px);
+    animation: buttonShine 1.5s linear infinite;
+}
+	
+
+.show {
+    display: block;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {opacity: 0; transform: translateY(-10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* 头部导航栏样式优化 */
+.header-container {
+    background: #FFFFFF;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    padding: 8px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: auto;
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo-section img {
+    max-height: 45px;
+    width: auto;
+}
+
+/* 修改导航按钮为单行 */
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 移除多余的nav-row */
+.nav-button {
+    padding: 6px 16px;
+    font-size: 14px;
+    min-width: 80px;
+    background: linear-gradient(90deg, #81B29A, #6A8C7D, #81B29A);
+    background-size: 200% 100%;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Georgia', serif;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* 调整下拉菜单位置 */
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #FFFFFF;
+    border-radius: 12px;
+    min-width: 160px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid #81B29A;
+    padding: 6px 0;
+    margin-top: 5px;
+}
+
+.nav-dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(5px);
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 20px;
+    color: #3D405B;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 2px 8px;
+    border-radius: 8px;
+}
+
+.dropdown-content a:hover {
+    background: #81B29A;
+    color: #FFFFFF;
+    transform: translateX(5px);
+}
+
+/* 响应式调整 */
+@media (max-width: 900px) {
+    .nav-button {
+        padding: 5px 12px;
+        font-size: 13px;
+        min-width: 70px;
+    }
+    
+    .nav-buttons {
+        gap: 6px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .footer-info {
+        order: 2;
+    }
+    
+    .footer-qrcode {
+        order: 3;
+    }
+}
+
+/* 页面基础样式 */
+body {
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+    padding-top: 80px;
+    padding-bottom: 60px;
+    box-sizing: border-box;
+    background-color: #F4F1DE;
+    font-family: "Georgia", serif;
+    color: #3D405B;
+    font-size: 18px;
+    text-align: left;
+}
+
+/* footer固定底部样式 */
+.footer-container {
+    background: #FFFFFF;
+    padding: 10px 0;
+    box-shadow: 0 -2px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    gap: 10px;
+}
+
+.footer-logo {
+    flex: 0 0 auto;
+}
+
+.footer-logo img {
+    max-height: 30px;
+    width: auto;
+}
+
+.footer-info {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.footer-info p {
+    margin: 1px 0;
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+.footer-qrcode {
+    flex: 0 0 auto;
+}
+
+.footer-qrcode img {
+    width: 25px;
+    height: 25px;
+    border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 80px;
+    }
+
+    .footer-content {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .footer-info {
+        order: 2;
+        flex: 0 0 100%;
+        font-size: 11px;
+    }
+
+    .footer-logo {
+        order: 1;
+    }
+
+    .footer-qrcode {
+        order: 3;
+    }
+}
+
+/* 统一按钮动画效果 */
+@keyframes buttonPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+}
+
+@keyframes buttonShine {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* 导航按钮样式增强 */
+.nav-button {
+    padding: 6px 16px;
+    font-size: 14px;
+    min-width: 80px;
+    background: linear-gradient(90deg, #81B29A, #6A8C7D, #81B29A);
+    background-size: 200% 100%;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Georgia', serif;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.nav-button:hover {
+    animation: buttonShine 1.5s linear infinite;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transform: translateY(-2px);
+}
+
+.nav-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 登录按钮样式增强 */
+.login-btn {
+    background: linear-gradient(90deg, #81B29A, #6A8C7D, #81B29A);
+    background-size: 200% 100%;
+    color: #FFFFFF !important;
+    padding: 12px 40px !important;
+    border-radius: 30px;
+    font-weight: bold !important;
+    cursor: pointer;
+    text-decoration: none !important;
+    display: block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: none;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.login-btn:hover {
+    animation: buttonShine 1.5s linear infinite;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transform: translateY(-2px);
+}
+
+.login-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 输入框动画效果 */
+.input-group input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 2px solid #3D405B;
+    border-radius: 30px;
+    background: rgba(244, 241, 222, 0.9);
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #81B29A;
+    box-shadow: 0 0 12px rgba(129,178,154,0.4);
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* 下拉菜单项动画 */
+.dropdown-content a {
+    display: block;
+    padding: 12px 20px;
+    color: #3D405B;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 2px 8px;
+    border-radius: 8px;
+    position: relative;
+    background: linear-gradient(90deg, transparent, transparent);
+    background-size: 200% 100%;
+}
+
+.dropdown-content a:hover {
+    background: linear-gradient(90deg, #81B29A, #6A8C7D);
+    color: #FFFFFF;
+    transform: translateX(5px);
+    animation: buttonShine 1.5s linear infinite;
+}
+
+/* 响应式动画调整 */
+@media (max-width: 768px) {
+    .nav-button, .login-btn {
+        transition: all 0.2s ease; /* 在移动端使用更快的过渡时间 */
+    }
+    
+    .nav-button:hover, .login-btn:hover {
+        animation: none; /* 在移动端禁用渐变动画 */
+        background-position: 0 0;
+    }
+}
+</style>
+<link rel="shortcut icon" href="imge/ico.png">
+</head>
+
+<body class="bj"   background="../image/横/2.jpg" padding-top="80px" padding-bottom="40px">
+    <div class="header-container">
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="../image/logo/LOGO.jpg" alt="Logo">
+            </div>
+            <nav class="nav-buttons">
+                <a href="首页.html" class="nav-button">首页</a>
+                <a href="作品展示.html" class="nav-button">作品展示</a>
+                <a href="read me.html" class="nav-button">readme</a>
+                <a href="登录.html" class="nav-button">登录</a>
+                <a href="关于穆夏.html" class="nav-button">关于穆夏</a>
+                <div class="nav-dropdown">
+                    <a href="巴洛克艺术.html" class="nav-button">巴洛克艺术</a>
+                    <div class="dropdown-content">
+                        <a href="#origin">起源</a>
+                        <a href="#features">特点</a>
+                        <a href="#masterpieces">代表作品</a>
+                        <a href="#influence">影响</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="洛可可艺术.html" class="nav-button">洛可可艺术</a>
+                    <div class="dropdown-content">
+                        <a href="#rococo-origin">起源</a>
+                        <a href="#rococo-features">特点</a>
+                        <a href="#rococo-masterpieces">代表作品</a>
+                        <a href="#rococo-influence">影响</a>
+                    </div>
+                </div>
+                <a href="联系我们.html" class="nav-button">联系我们</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- 反馈表单 -->
+    <table width="500" height="auto" border="0" align="center" class="login-container">
+    <tbody>
+        <tr>
+            <td width="703" height="441" class="yj">
+                <table width="100%" border="0" align="center">
+                    <tbody>
+                        <tr>
+                            <td height="266" valign="top" class="login-box" bgcolor="#6E3502">
+                                <table width="100%" border="0" align="center">
+                                    <tbody>
+                                        <tr>
+                                            <td height="244" valign="top" class="login-content">
+                                                <table width="371" height="227" border="0" align="center">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td height="20" align="center" valign="middle">
+                                                                <img src="../image/logo/LOGO.jpg" class="logo" width="300" height="50" alt="阿尔丰斯·穆夏艺术馆"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="39" align="center" class="title">
+                                                                用户登录
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="96" align="center" valign="middle">
+                                                                <div class="input-group">
+                                                                    用户名：<input type="text">  <br><br>
+                                                                    &nbsp;&nbsp;密码：
+                                                                    <input type="password">  
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="27" align="center" valign="middle"><a href="首页.html" class="login-btn">立即登录</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="40" class="links">
+                                                                忘记密码？ | 立即注册
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+    <p>&nbsp;</p>
+    <br>
+
+    <!-- 页脚 -->
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="../image/logo/LOGO.jpg" alt="Logo">
+            </div>
+            <div class="footer-info">
+                <p>©&nbsp;&nbsp; 2025 FUNRIGHT。该网站所有商标均为李姚所有</p>
+                <p>学号：211008404112</p>
+                <p>班别：数媒2142</p>
+                <p>姓名：李姚</p>
+            </div>
+            <div class="footer-qrcode">
+                <img src="../image/logo/真趣完成.jpg" alt="QR Code">
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // 增强版下拉菜单控制
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+        dropdown.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const menu = this.querySelector('.dropdown-content');
+            const isOpen = menu.classList.contains('show');
+            
+            // 关闭所有其他菜单
+            document.querySelectorAll('.dropdown-content').forEach(otherMenu => {
+                if(otherMenu !== menu) otherMenu.classList.remove('show');
+            });
+            
+            // 切换当前菜单
+            menu.classList.toggle('show', !isOpen);
+        });
+    });
+
+    // 优化全局点击监听
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown-content').forEach(menu => {
+                menu.classList.remove('show');
+            });
+        }
+    });
+
+    // 增强锚点滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.hash);
+            if(target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                history.replaceState(null, null, this.hash);  // 更新地址栏hash
+            }
+        });
+    });
+    </script>
+</body>
+</html>

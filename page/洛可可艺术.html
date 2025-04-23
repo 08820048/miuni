@@ -1,0 +1,611 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>洛可可艺术 | Baroque Art</title>
+<link rel="stylesheet" href="common.css">
+<style type="text/css">
+/* 保留原有导航栏样式 */
+		a {
+text-decoration: none;
+}
+.bj {
+    background-color: #F4F1DE;
+    font-family: "Georgia", serif;
+    color: #3D405B;
+    margin: 0;
+    padding: 0;
+}
+
+.yj {
+    border: solid 0px;
+    border-radius: 10px;
+}
+
+.bs2 {
+    border: solid 0px;
+    border-radius: 10px; /* 确保所有标题都有圆角 */
+    transition: all 0.3s;
+    cursor: pointer;
+    background-color: #81B29A; /* 统一背景色 */
+    color: #FFFFFF; /* 统一文字颜色 */
+}
+
+.bs2:hover {
+    background-color: #2CADCA; /* 鼠标悬停时的背景色 */
+}
+
+/* 新增下拉菜单样式 */
+.dropdown {
+  
+    position: relative;
+    display: inline-block;  /* 确保定位基准正确 */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #81B29A;
+    min-width: 160px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    margin-top: 5px;
+}
+
+.dropdown-content a {
+    color: #3D405B;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #6A8B7D;
+}
+	
+
+.show {
+    display: block;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {opacity: 0; transform: translateY(-10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* 新增内容区域样式 */
+.content-section {
+    padding: 50px 20%;
+    transition: transform 0.3s;
+}
+
+.content-section:hover {
+    transform: translateY(-5px);
+}
+
+.artwork-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.artwork-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    /* 删除 font-size: 10px; */
+}
+	@media (max-width: 768px) {
+    .content-section {
+        padding: 30px 10%;
+    }
+}
+
+/* 洛可可风格样式 */
+.rococo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #FFF9F0;
+    position: relative;
+    overflow: hidden;
+}
+  
+.rococo-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 30"><path d="M0,15 Q300,0 600,15 T1200,15" fill="none" stroke="%23E6C79C" stroke-width="2"/><path d="M0,20 Q300,5 600,20 T1200,20" fill="none" stroke="%23D4AF7A" stroke-width="1.5"/></svg>');
+    background-repeat: repeat-x;
+    opacity: 0.6;
+}
+  
+.content-section {
+    margin-bottom: 50px;
+    position: relative;
+    border: 1px solid #E6C79C;
+    border-radius: 15px;
+    padding: 30px;
+    background: linear-gradient(to bottom right, #FFF9F0, #F8EAD8);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+  
+.content-section::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    width: 100px;
+    height: 100px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,20 C40,0 60,0 80,20 C100,40 100,60 80,80 C60,100 40,100 20,80 C0,60 0,40 20,20 Z" fill="none" stroke="%23D4AF7A" stroke-width="1.5"/></svg>');
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    pointer-events: none;
+}
+  
+.content-section h2 {
+    color: #8E715B;
+    font-family: "Cormorant Garamond", "Georgia", serif;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+  
+.content-section h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 10px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 10"><path d="M0,5 Q37.5,0 75,5 T150,5" fill="none" stroke="%23D4AF7A" stroke-width="1"/><path d="M0,7 Q37.5,2 75,7 T150,7" fill="none" stroke="%23D4AF7A" stroke-width="1"/></svg>');
+    background-repeat: no-repeat;
+}
+  
+.artwork-card {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(228, 199, 156, 0.3);
+}
+  
+.artwork-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+  
+.artwork-card p {
+    color: #594A42;
+    font-family: "Georgia", serif;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+  
+.artwork-card img {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    transition: all 0.3s ease;
+    border: 3px solid rgba(228, 199, 156, 0.3);
+}
+  
+.artwork-card img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-color: rgba(228, 199, 156, 0.8);
+}
+  
+/* 洛可可特点样式 */
+.feature-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+  
+.feature-item {
+    flex: 1 1 300px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #D4AF7A;
+    transition: all 0.3s ease;
+}
+  
+.feature-item:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateX(5px);
+}
+  
+.feature-item h3 {
+    color: #8E715B;
+    font-family: "Cormorant Garamond", "Georgia", serif;
+    font-size: 22px;
+    margin-bottom: 12px;
+    border-bottom: 1px dotted #D4AF7A;
+    padding-bottom: 8px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.05);
+}
+  
+.feature-item p {
+    color: #594A42;
+    font-size: 15px;
+    line-height: 1.7;
+}
+  
+/* 作品展示样式 */
+.masterpieces-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.gallery-container {
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+    background-color: #F4F1DE;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #E6C79C;
+}
+  
+.gallery-container::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 1px dashed #D4AF7A;
+    border-radius: 12px;
+    pointer-events: none;
+}
+  
+.gallery-row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+  
+.gallery-item {
+    position: relative;
+    transition: all 0.4s ease;
+    margin: 10px;
+}
+  
+.gallery-item:hover {
+    transform: translateY(-8px) rotate(2deg);
+    z-index: 2;
+}
+  
+.gallery-item img {
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 4px solid white;
+    transition: all 0.3s ease;
+}
+  
+.gallery-caption {
+    text-align: center;
+    background-color: #81B29A;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-family: "Georgia", serif;
+    font-size: 18px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+  
+.gallery-item:hover .gallery-caption {
+    background-color: #2CADCA;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+  
+/* 装饰元素 */
+.rococo-ornament {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.4;
+    z-index: -1;
+}
+  
+.ornament-top-right {
+    top: -30px;
+    right: -30px;
+    width: 120px;
+    height: 120px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M80,20 C100,40 100,60 80,80 C60,100 40,100 20,80 C0,60 0,40 20,20 C40,0 60,0 80,20 Z" fill="none" stroke="%23D4AF7A" stroke-width="2"/></svg>');
+    transform: rotate(45deg);
+}
+  
+.ornament-bottom-left {
+    bottom: -20px;
+    left: -20px;
+    width: 100px;
+    height: 100px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M30,10 C50,30 70,30 90,10 M10,30 C30,50 30,70 10,90" fill="none" stroke="%23D4AF7A" stroke-width="1.5"/></svg>');
+}
+  
+/* 背景装饰 */
+.baroque-bg-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path d="M20,10 Q25,5 30,10 T40,20 T30,30 T20,40 T10,30 T0,20 T10,10 T20,0 T30,10" fill="none" stroke="%23F2E8D8" stroke-width="0.5"/></svg>');
+    opacity: 0.3;
+    z-index: -100;
+    pointer-events: none;
+}
+
+/* 新增的悬停效果样式 */
+.info-box {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+</style>
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+</head>
+
+<body class="bj" onload="MM_preloadImages('/image/洛可可艺术/201812131544692117915.jpg')">
+<div class="header-container">
+    <div class="header-content">
+        <div class="logo-section">
+            <img src="../image/logo/LOGO.jpg" alt="Logo">
+        </div>
+        <nav class="nav-buttons">
+            <a href="首页.html" class="nav-button">首页</a>
+            <a href="作品展示.html" class="nav-button">作品展示</a>
+            <a href="read me.html" class="nav-button">readme</a>
+            <a href="登录.html" class="nav-button">登录</a>
+            <a href="关于穆夏.html" class="nav-button">关于穆夏</a>
+            <div class="nav-dropdown">
+                <a href="巴洛克艺术.html" class="nav-button">巴洛克艺术</a>
+                <div class="dropdown-content">
+                    <a href="#origin">起源</a>
+                    <a href="#features">特点</a>
+                    <a href="#masterpieces">代表作品</a>
+                    <a href="#influence">影响</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <a href="洛可可艺术.html" class="nav-button">洛可可艺术</a>
+                <div class="dropdown-content">
+                    <a href="#rococo-origin">起源</a>
+                    <a href="#rococo-features">特点</a>
+                    <a href="#rococo-masterpieces">代表作品</a>
+                    <a href="#rococo-influence">影响</a>
+                </div>
+            </div>
+            <a href="联系我们.html" class="nav-button">联系我们</a>
+        </nav>
+    </div>
+</div>
+
+<!-- 新增内容区域 --><!-- 新增洛可可艺术内容区域 -->
+<div class="baroque-bg-pattern"></div>
+<div class="rococo-container">
+  <div class="content-section" id="rococo-origin">
+    <div class="rococo-ornament ornament-top-right"></div>
+    <h2>洛可可艺术的起源</h2>
+    <div class="artwork-card">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px;">
+        <div style="flex: 1 1 400px;">
+          <p>洛可可艺术起源于18世纪的法国，洛可可艺术诞生于18世纪初的法国，是继巴洛克之后盛行于欧洲的精致艺术风格。其名称源自法语"rocaille"（岩状装饰）与"coquille"（贝壳），暗示其以自然曲线与有机形态为核心的装饰特征。</p>
+          <p>1715年路易十四去世后，法国贵族阶层摆脱了凡尔赛宫的严格礼仪，转向追求享乐与私密生活。艺术风格随之转变：从巴洛克的恢宏庄严，转向轻盈、优雅与感性的表达。</p>
+          <p>洛可可以柔和的色彩（浅粉、薄荷绿、淡金）、不对称的C形涡卷、花卉纹样及东方元素为标志，强调愉悦的感官体验。绘画题材多描绘贵族田园雅集、爱情游戏与神话场景，如华托《舟发西苔岛》中梦境般的仙境，布歇笔下慵懒的女神，以及弗拉戈纳尔《秋千》中俏皮的洛可可情调。</p>
+        </div>
+        <div style="flex: 0 1 400px; text-align: center;">
+          <img src="../image/洛可可艺术/201812131544692117915.jpg" width="380" alt="洛可可建筑" style="max-width: 100%;" />
+          <div style="font-style: italic; margin-top: 10px; color: #8E715B; font-size: 14px;">洛可可风格建筑细节展示，呈现其特有的曲线装饰和精致风格</div>
+        </div>
+      </div>
+      <div style="margin-top: 20px;">
+        <p>建筑与室内设计亦追求精致私密，如巴黎苏比斯府邸的沙龙，以金色浮雕与曲线墙面营造出柔美空间。洛可可的繁荣离不开蓬巴杜夫人等贵族赞助者的推动，其风潮随法国文化影响力蔓延至德国、奥地利等地。</p>
+        <p>然而，随着启蒙思想兴起与社会批判加剧，浮华的洛可可在18世纪末被新古典主义取代。尽管短暂，它仍以独特的柔美语言，记录了旧制度末期贵族阶层对无忧生活的最后幻想。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section" id="rococo-features">
+    <div class="rococo-ornament ornament-bottom-left"></div>
+    <h2>洛可可艺术的特点</h2>
+    <div class="artwork-card">
+      <div class="feature-list">
+        <div class="feature-item">
+          <h3>柔美繁复的装饰语言</h3>
+          <p>洛可可摒弃巴洛克的壮丽恢宏，转向纤细柔和的曲线与不对称构图。C形、S形涡卷、贝壳纹样、藤蔓花卉等自然元素交织成繁复装饰，墙面、家具乃至器皿均布满镂金雕花的细节，形成"视觉的愉悦"。建筑中大量使用灰泥浮雕、镜面与浅色大理石，营造出私密沙龙般的梦幻空间。</p>
+        </div>
+        <div class="feature-item">
+          <h3>明快甜美的色彩与光线</h3>
+          <p>色调以浅粉、薄荷绿、奶油白、淡金为主，搭配柔和的银灰与天蓝，营造轻盈浪漫的氛围。绘画中常见朦胧的光线处理，如布歇笔下的女神肌肤泛着珍珠光泽，华托以黄昏暮色烘托爱情的缥缈，赋予画面诗意与感官诱惑。</p>
+        </div>
+        <div class="feature-item">
+          <h3>世俗享乐的主题表达</h3>
+          <p>艺术题材脱离宗教与历史叙事，聚焦贵族阶层的闲适生活：花园嬉戏、宫廷舞会、调情场景与田园牧歌成为主流。神话人物被"去神性化"，维纳斯常以慵懒贵妇形象出现，丘比特化为顽皮孩童。弗拉戈纳尔的《秋千》以戏谑笔触描绘隐秘情事，折射出洛可可对欲望的坦率表达。</p>
+        </div>
+        <div class="feature-item">
+          <h3>东方趣味与女性化倾向</h3>
+          <p>受中国风（Chinoiserie）影响，瓷器、漆器与丝绸纹样融入装饰，庭园中点缀宝塔与亭台。艺术风格整体趋向阴柔化：蓬巴杜夫人等女性赞助者主导审美，画家偏好描绘柔美女性胴体，家具线条圆润纤巧，甚至男性肖像也常着华服、佩戴假发，凸显矫饰之美。</p>
+        </div>
+        <div class="feature-item">
+          <h3>短暂性与矛盾性</h3>
+          <p>洛可可的浮华背后暗含危机：其极致的装饰性被视为贵族阶级奢靡的象征，在启蒙运动的理性批判下逐渐衰落。它既是旧制度末期无忧生活的缩影，也因脱离现实而成为"颓废美学"的代表，最终被新古典主义的庄重所取代。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section" id="rococo-masterpieces">
+    <div class="rococo-ornament ornament-top-right"></div>
+    <h2>洛可可艺术的代表作品</h2>
+    <div class="artwork-card">
+      <div class="masterpieces-gallery">
+        <div class="gallery-container">
+          <div class="gallery-row">
+            <div class="gallery-item">
+              <img src="../image/花系列/百合.jpg" alt="夏季" width="150" height="340"/>
+              <div class="gallery-caption">《四季》系列</div>
+            </div>
+            <div class="gallery-item">
+              <img src="../image/花系列/康乃馨.jpg" width="150" height="340" alt="冬季"/>
+              <div class="gallery-caption">《月亮与星星》</div>
+            </div>
+            <div class="gallery-item">
+              <img src="../image/花系列/玫瑰.jpg" width="150" height="340" alt="秋季"/>
+              <div class="gallery-caption">《艺术女神》</div>
+            </div>
+            <div class="gallery-item">
+              <img src="../image/花系列/鸢尾.jpg" width="150" height="340" alt="春季"/>
+              <div class="gallery-caption">《花之女神》</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 25px; text-align: center; font-style: italic; color: #8E715B;">
+          洛可可艺术的代表作品展示了其对自然、神话与优雅生活的独特表达
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section" id="rococo-influence">
+    <div class="rococo-ornament ornament-bottom-left"></div>
+    <h2>洛可可艺术的影响</h2>
+    <div class="artwork-card">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <p style="font-size: 17px; line-height: 1.8; text-indent: 2em;">洛可可艺术虽在18世纪末因浮华特质遭启蒙运动批判而衰落，但其影响深远地渗透于艺术史中。它打破了巴洛克式的宗教肃穆，将艺术重心转向世俗生活与情感表达，为后来浪漫主义的情感解放奠定基础。</p>
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+          <div class="info-box" style="flex: 1; min-width: 250px; padding: 15px; background-color: rgba(246, 237, 220, 0.5); border-radius: 10px; border-left: 3px solid #D4AF7A;">
+            <h4 style="color: #8E715B; margin-bottom: 10px; font-family: 'Georgia', serif;">美学传承</h4>
+            <p>其纤巧曲线与自然纹样启发了新艺术运动（Art Nouveau），穆夏的装饰风格便可见洛可可的柔美遗韵。</p>
+          </div>
+          <div class="info-box" style="flex: 1; min-width: 250px; padding: 15px; background-color: rgba(246, 237, 220, 0.5); border-radius: 10px; border-left: 3px solid #D4AF7A;">
+            <h4 style="color: #8E715B; margin-bottom: 10px; font-family: 'Georgia', serif;">工艺影响</h4>
+            <p>在工艺领域，洛可可推动瓷器、家具与服饰设计的精致化，中国风（Chinoiserie）与欧洲本土美学的融合更促进了跨文化交流。</p>
+          </div>
+        </div>
+        <p style="font-size: 17px; line-height: 1.8; text-indent: 2em;">现代室内设计仍借鉴其不对称布局与浅色调搭配，营造轻盈空间。尽管曾被诟病为"颓废美学"，洛可可实则解放了艺术的愉悦本质，成为连接巴洛克庄严与现代自由美学的重要桥梁，至今仍在时尚、影视等领域焕发着柔美生命力。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-container">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="../image/logo/LOGO.jpg" alt="Logo">
+        </div>
+        <div class="footer-info">
+            <p>©&nbsp;&nbsp; 2025 FUNRIGHT。该网站所有商标均为李姚所有</p>
+            <p>学号：211008404112</p>
+            <p>班别：数媒2142</p>
+            <p>姓名：李姚</p>
+        </div>
+        <div class="footer-qrcode">
+            <img src="../image/logo/真趣完成.jpg" alt="QR Code">
+        </div>
+    </div>
+</div>
+
+<script>
+// 增强版下拉菜单控制
+document.querySelectorAll('.dropdown').forEach(dropdown => {
+    dropdown.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const menu = this.querySelector('.dropdown-content');
+        const isOpen = menu.classList.contains('show');
+        
+        // 关闭所有其他菜单
+        document.querySelectorAll('.dropdown-content').forEach(otherMenu => {
+            if(otherMenu !== menu) otherMenu.classList.remove('show');
+        });
+        
+        // 切换当前菜单
+        menu.classList.toggle('show', !isOpen);
+    });
+});
+
+// 优化全局点击监听
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.dropdown')) {
+        document.querySelectorAll('.dropdown-content').forEach(menu => {
+            menu.classList.remove('show');
+        });
+    }
+});
+
+// 增强锚点滚动
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.hash);
+        if(target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            history.replaceState(null, null, this.hash);  // 更新地址栏hash
+        }
+    });
+});
+</script>
+
+</body>
+</html>

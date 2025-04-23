@@ -1,0 +1,562 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>read me</title>
+	<style type="text/css">
+		.bj{
+    background-color: #F4F1DE; /* 柔和的背景色 */
+    font-family: "Georgia", serif; /* 优雅的字体 */
+    color: #3D405B; /* 深色文字 */
+}
+		.yj{border: solid 0px;
+            border-radius: 10px;}
+		.bj2{background-color: #E4D04A}
+		.yj2{border:solid 0px;
+			border-radius: 50px}
+		.yj2:hover{transform: scale(1.1,1.1);
+		          transition: all 0.2s}
+		.yj3{
+    border: solid 0px;
+    border-radius: 50px;
+    font-family: "Georgia", serif; /* 优雅的字体 */
+    font-size: 36px;
+}
+		.bs{border: solid 0px;
+            border-radius: 10px;}
+		.bs:hover{background-color:#B8AC3E;
+		          transition: all 0.2s}
+		.bs2 {
+    border: solid 0px;
+    border-radius: 10px; /* 确保所有标题都有圆角 */
+    transition: all 0.3s;
+    cursor: pointer;
+    background-color: #81B29A; /* 统一背景色 */
+    color: #FFFFFF; /* 统一文字颜色 */
+}
+		.bs2:hover{background-color:#2CADCA;
+		          transition: all 0.2s}
+		#gd{border: solid 0px;
+            border-radius: 10px;}
+		#gd:hover{transform: scale(1,1);
+		          transition: 0.2s}
+		a:link{color:#3D405B;
+		      text-decoration: none}
+		a:active{color: #FFFFFF}
+      
+        /* 新增穆夏风格样式 */
+        .mucha-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            background-color: #fbf8f1;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            border-radius: 15px;
+        }
+        
+        .mucha-ornament {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .ornament-top-left {
+            top: -20px;
+            left: -20px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M90,50 C90,22.4 67.6,0 40,0 C17.9,0 0,17.9 0,40 C0,67.6 22.4,90 50,90 C72.1,90 90,72.1 90,50 Z M70,50 C70,33.4 56.6,20 40,20 C28.9,20 20,28.9 20,40 C20,56.6 33.4,70 50,70 C61.1,70 70,61.1 70,50 Z" fill="none" stroke="%2381B29A" stroke-width="1.5"/></svg>');
+        }
+        
+        .ornament-top-right {
+            top: -20px;
+            right: -20px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10,50 C10,22.4 32.4,0 60,0 C82.1,0 100,17.9 100,40 C100,67.6 77.6,90 50,90 C27.9,90 10,72.1 10,50 Z M30,50 C30,33.4 43.4,20 60,20 C71.1,20 80,28.9 80,40 C80,56.6 66.6,70 50,70 C38.9,70 30,61.1 30,50 Z" fill="none" stroke="%2381B29A" stroke-width="1.5"/></svg>');
+        }
+        
+        .ornament-bottom-left {
+            bottom: -20px;
+            left: -20px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M90,50 C90,77.6 67.6,100 40,100 C17.9,100 0,82.1 0,60 C0,32.4 22.4,10 50,10 C72.1,10 90,27.9 90,50 Z M70,50 C70,66.6 56.6,80 40,80 C28.9,80 20,71.1 20,60 C20,43.4 33.4,30 50,30 C61.1,30 70,38.9 70,50 Z" fill="none" stroke="%2381B29A" stroke-width="1.5"/></svg>');
+        }
+        
+        .ornament-bottom-right {
+            bottom: -20px;
+            right: -20px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10,50 C10,77.6 32.4,100 60,100 C82.1,100 100,82.1 100,60 C100,32.4 77.6,10 50,10 C27.9,10 10,27.9 10,50 Z M30,50 C30,66.6 43.4,80 60,80 C71.1,80 80,71.1 80,60 C80,43.4 66.6,30 50,30 C38.9,30 30,38.9 30,50 Z" fill="none" stroke="%2381B29A" stroke-width="1.5"/></svg>');
+        }
+        
+        .page-title-container {
+            position: relative;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        
+        .page-title-container::before, 
+        .page-title-container::after {
+            content: "";
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(to right, transparent, #81B29A, transparent);
+        }
+        
+        .page-title-container::before {
+            top: -10px;
+        }
+        
+        .page-title-container::after {
+            bottom: -10px;
+        }
+        
+        .page-title {
+            text-align: center;
+            font-family: "Georgia", serif;
+            font-size: 36px;
+            color: #3D405B;
+            margin: 20px 0;
+            padding: 15px 0;
+            position: relative;
+        }
+        
+        .page-title::before, 
+        .page-title::after {
+            content: "❦";
+            color: #81B29A;
+            font-size: 24px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .page-title::before {
+            left: 20%;
+        }
+        
+        .page-title::after {
+            right: 20%;
+        }
+        
+        .art-nouveau-border {
+    position: relative;
+    padding: 30px;
+    margin-bottom: 40px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    font-size: 24px;
+        }
+        
+        .art-nouveau-border::before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 1px solid rgba(129, 178, 154, 0.3);
+            border-radius: 10px;
+            pointer-events: none;
+        }
+        
+        .gallery-title {
+            color: #3D405B;
+            font-family: "Georgia", serif;
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .gallery-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #81B29A, transparent);
+        }
+        
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+        
+        .artwork-item {
+            position: relative;
+            width: 185px;
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+        
+        .artwork-item:hover {
+            transform: translateY(-10px);
+            z-index: 2;
+        }
+        
+        .artwork-frame {
+            position: relative;
+            padding: 15px;
+            background-color: #FFF9F0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .artwork-item:hover .artwork-frame {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .artwork-frame::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 1px solid rgba(228, 208, 74, 0.3);
+            border-radius: 7px;
+            pointer-events: none;
+        }
+        
+        .artwork-image {
+            width: 100%;
+            height: 368px; 
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            display: block;
+            object-fit: cover; 
+            cursor: pointer; /* 添加手型光标表示可点击 */
+        }
+        
+        .art-nouveau-border:nth-of-type(2) .artwork-image {
+            height: 420px;
+        }
+        
+        .artwork-item:hover .artwork-image {
+            transform: scale(1.03);
+        }
+        
+        .artwork-caption {
+            text-align: center;
+            background-color: #81B29A;
+            color: white;
+            padding: 12px 10px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-family: "Georgia", serif;
+            font-size: 18px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .artwork-item:hover .artwork-caption {
+            background-color: #2CADCA;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
+        
+        .collection-description {
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #3D405B;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+        }
+        
+        /* 背景装饰 */
+        .art-nouveau-bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><path d="M30,10 Q40,0 50,10 T60,30 T50,50 T30,60 T10,50 T0,30 T10,10 T30,0 T50,10" fill="none" stroke="%23E4D04A" stroke-width="0.5"/></svg>');
+            opacity: 0.15;
+            z-index: -100;
+            pointer-events: none;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 900px) {
+            .gallery-container {
+                gap: 15px;
+            }
+            
+            .artwork-item {
+                width: 160px;
+            }
+            
+            .page-title::before {
+                left: 10%;
+            }
+            
+            .page-title::after {
+                right: 10%;
+            }
+        }
+
+        /* 添加图片点击放大的模态框样式 */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-content {
+            display: block;
+            position: relative;
+            margin: auto;
+            max-width: 80%;
+            max-height: 80vh;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            animation: zoom 0.3s ease;
+        }
+
+        @keyframes zoom {
+            from {transform: translateY(-50%) scale(0.1);}
+            to {transform: translateY(-50%) scale(1);}
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+            z-index: 1001;
+        }
+
+        .close-modal:hover {
+            color: #81B29A;
+        }
+	</style>
+	
+	<link rel="shortcut icon" href="imge/ico.png">
+	<style type="text/css">
+	.bs21 {    border: solid 0px;
+    border-radius: 10px; /* 确保所有标题都有圆角 */
+    transition: all 0.3s;
+    cursor: pointer;
+    background-color: #81B29A; /* 统一背景色 */
+    color: #FFFFFF; /* 统一文字颜色 */
+}
+.dropdown {  
+    position: relative;
+    display: inline-block;  /* 确保定位基准正确 */
+}
+.dropdown-content {    display: none;
+    position: absolute;
+    background-color: #81B29A;
+    min-width: 160px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    margin-top: 5px;
+}
+		.dropdown-content a {
+    color: #3D405B;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #6A8B7D;
+}
+	.show {
+    display: block;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {opacity: 0; transform: translateY(-10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+    </style>
+</head>
+
+
+<body class="bj">
+<table width="221" border="0" align="center">
+  <tbody>
+    <tr>
+      <td height="101" bgcolor="#FFFFFF" class="yj"><table width="800" border="0" align="center">
+        <tbody>
+          <tr>
+            <td height="101" bgcolor="#FFFFFF" class="yj"><table  width="800"border="0" align="center">
+              <tbody>
+                <tr>
+                  <td height="95" rowspan="2" align="left" valign="top"><img src="../image/logo/LOGO.jpg" width="464" height="73" alt=""/></td>
+                  <td valign="top"><table width="596" height="45" border="0" align="right" cellspacing="10">
+                    <tbody>
+                      <tr bgcolor="#81B29A" style="color: #FFFFFF; font-family: 'Georgia', serif;">
+                        <td width="134" align="center" class="bs2"><a href="首页.html">首页</a></td>
+                        <td width="133" align="center" class="bs2"><a href="作品展示.html">作品展示</a></td>
+                        <td width="139" align="center" class="bs2"><a href="read me.html">readme</a></td>
+                        <td width="132" align="center" class="bs2"><a href="登录.html">登录</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                    <p>&nbsp;</p></td>
+                </tr>
+                <tr>
+                  <td valign="top"><table width="596" height="45" border="0" align="right" cellspacing="10">
+                    <tbody>
+                      <tr bgcolor="" style="color: #FFFFFF; font-family: 'Georgia', serif;">
+                        <td width="134" align="center" class="bs2"><a href="关于穆夏.html">关于穆夏</a></td>
+                        <td width="134" align="center" class="bs2 dropdown" onclick="toggleDropdown(event)">
+                          <a href="巴洛克艺术.html">巴洛克艺术</a>
+                          <div class="dropdown-content" id="baroqueDropdown">
+                            <a href="#origin">起源</a>
+                            <a href="#features">特点</a>
+                            <a href="#masterpieces">代表作品</a>
+                            <a href="#influence">影响</a>
+                          </div>
+                        </td>
+                        <td width="149" align="center" class="bs2 dropdown" onclick="toggleDropdown(event)">
+                          <a href="洛可可艺术.html">洛可可艺术</a>
+                          <div class="dropdown-content" id="rococoDropdown">
+                            <a href="#rococo-origin">起源</a>
+                            <a href="#rococo-features">特点</a>
+                            <a href="#rococo-masterpieces">代表作品</a>
+                            <a href="#rococo-influence">影响</a>
+                          </div>
+                        </td>
+                        <td width="121" align="center" class="bs2"><a href="联系我们.html">联系我们</a></td>
+                      </tr>
+                    </tbody>
+                  </table></td>
+                </tr>
+              </tbody>
+            </table></td>
+          </tr>
+        </tbody>
+      </table></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+	
+<!-- 背景装饰图案 -->
+<div class="art-nouveau-bg-pattern"></div>
+
+<!-- 图片放大模态框 -->
+<div id="imageModal" class="image-modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImage">
+</div>
+
+<!-- 新的内容区域开始 -->
+<div class="mucha-container">
+    <div class="mucha-ornament ornament-top-left"></div>
+    <div class="mucha-ornament ornament-top-right"></div>
+    <div class="mucha-ornament ornament-bottom-left"></div>
+    <div class="mucha-ornament ornament-bottom-right"></div>
+    
+    <div class="page-title-container">
+        <h1 class="page-title">艺术的数字化传承：阿尔丰斯·穆夏插画作品网页展示设计</h1>
+    </div>
+    
+  <div class="collection-description"></div>
+<div class="art-nouveau-border">
+    <h2 class="gallery-title">READ ME&nbsp;&nbsp;</h2>
+    <p>&nbsp;&nbsp;&nbsp;我对阿尔丰斯·穆夏艺术风格的关注始于设计周展览中对其作品的初次接触。作为新艺术运动的核心实践者，穆夏通过解构传统绘画范式，将植物形态的有机曲线、东方版画的平面构成与工业化时代的商业需求相融合，创造出具有高度辨识度的视觉语言体系。这种突破学科边界的创新思维，使其作品超越了装饰艺术的表层价值，成为19世纪末欧洲社会文化转型的视觉见证。</p>
+    <p>&nbsp;&nbsp;然而，在当今快节奏的数字时代，传统艺术的传播方式面临着巨大挑战。我意识到，想要让更多人了解和喜爱穆夏的艺术，就需要借助数字技术的力量，将经典作品以更现代、更便捷的方式呈现出来。因此，我萌生了将穆夏插画作品进行数字化传承的想法，并决定将其作为我的毕业设计主题。</p>
+<p>&nbsp;作为一名数字媒体技术专业的学生，我希望能运用自己所学的知识和技能，为穆夏艺术的传承贡献一份力量。我计划通过网页设计，将穆夏的作品进行数字化呈现，并结合互动元素和艺术知识普及，打造一个集艺术性、知识性和趣味性于一体的线上艺术空间，让更多人能够领略到穆夏艺术的魅力，感受新艺术运动的精神内涵。</p>
+    <p>&nbsp;我深知，这个毕业设计充满挑战，需要我付出大量的时间和精力。但我相信，凭借对穆夏艺术的热爱和对数字艺术的热情，我一定能够克服困难，完成这个充满意义的项目。我期待着通过自己的努力，为艺术的数字化传承探索新的可能性，也让更多人感受到艺术的魅力。</p>
+<div class="gallery-container"></div>
+  </div>
+</div>
+<!-- 新的内容区域结束 -->
+	
+	<table width="200" border="0" align="center">
+	  <tbody>
+	    <tr>
+      <td height="55" valign="top" bgcolor="#FFFFFF" class="yj">
+		  <table width="1366" border="0" align="center">
+  <tbody>
+    <tr>
+      <td height="76" align="left" valign="top"><img src="../image/logo/LOGO.jpg" width="464" height="73" alt=""/></td>
+      <td valign="top" style="color: #000000"><p>©&nbsp;&nbsp; 2025 FUNRIGHT。该网站所有商标均为李姚所有</p>
+        <p>学号：211008404112 </p>
+        <p>班别：数媒2142 </p>
+        <p>姓名：李姚</p></td>
+      <td align="center" valign="top" style="color: #000000"><img src="../image/logo/真趣完成.jpg" width="40" height="40" alt=""/></td>
+    </tr>
+  </tbody>
+</table></td>
+    </tr>
+      </tbody>
+</table>
+
+<script>
+// 增强版下拉菜单控制
+document.querySelectorAll('.dropdown').forEach(dropdown => {
+    dropdown.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const menu = this.querySelector('.dropdown-content');
+        const isOpen = menu.classList.contains('show');
+        
+        // 关闭所有其他菜单
+        document.querySelectorAll('.dropdown-content').forEach(otherMenu => {
+            if(otherMenu !== menu) otherMenu.classList.remove('show');
+        });
+        
+        // 切换当前菜单
+        menu.classList.toggle('show', !isOpen);
+    });
+});
+
+// 优化全局点击监听
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.dropdown')) {
+        document.querySelectorAll('.dropdown-content').forEach(menu => {
+            menu.classList.remove('show');
+        });
+    }
+});
+
+// 增强锚点滚动
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.hash);
+        if(target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            history.replaceState(null, null, this.hash);  // 更新地址栏hash
+        }
+    });
+});
+</script>
+</script>
+</body>
+</html>

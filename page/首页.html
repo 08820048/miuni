@@ -1,0 +1,657 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>首页</title>
+<style type="text/css">
+/* 基础样式 */
+body {
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+    padding-top: 80px;
+    padding-bottom: 60px;
+    box-sizing: border-box;
+    background-color: #F4F1DE;
+    font-family: "Georgia", serif;
+    color: #3D405B;
+    font-size: 18px;
+}
+
+/* Header样式 */
+.header-container {
+    background: #FFFFFF;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    padding: 8px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: auto;
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-section {
+    flex: 0 0 auto;
+}
+
+.logo-section img {
+    max-height: 45px;
+    width: auto;
+}
+
+/* 导航按钮样式 */
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-button {
+    padding: 6px 16px;
+    font-size: 14px;
+    min-width: 80px;
+    background: linear-gradient(90deg, #81B29A, #6A8C7D, #81B29A);
+    background-size: 200% 100%;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Georgia', serif;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.nav-button:hover {
+    animation: buttonShine 1.5s linear infinite;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transform: translateY(-2px);
+}
+
+.nav-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 按钮动画 */
+@keyframes buttonShine {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* 下拉菜单样式 */
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #FFFFFF;
+    border-radius: 12px;
+    min-width: 160px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid #81B29A;
+    padding: 6px 0;
+    margin-top: 5px;
+}
+
+.nav-dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(5px);
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 20px;
+    color: #3D405B;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 2px 8px;
+    border-radius: 8px;
+}
+
+.dropdown-content a:hover {
+    background: linear-gradient(90deg, #81B29A, #6A8C7D);
+    color: #FFFFFF;
+    transform: translateX(5px);
+}
+
+/* 内容区域样式 */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F4F1DE;
+}
+
+/* 标题栏样式 */
+.section-header {
+    background: #81B29A;
+    padding: 15px 25px;
+    border-radius: 15px;
+    margin: 30px 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.section-title {
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.section-title::before {
+    content: '|';
+    margin-right: 12px;
+    color: #FFFFFF;
+    font-weight: normal;
+}
+
+.section-more {
+    background: rgba(255,255,255,0.2);
+    padding: 6px 16px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.section-more:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateX(5px);
+}
+
+/* 作品展示网格 */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+    padding: 30px 0;
+}
+
+.work-card {
+    background: #FBF7E4;
+    border-radius: 8px;
+    overflow: visible;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    aspect-ratio: 1/2;
+    padding: 45px 15px 15px;
+    box-sizing: border-box;
+    border: 1px solid #E6DFC4;
+}
+
+.work-card::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 1px solid #D4C9A2;
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+.work-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.work-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 4px;
+    background: linear-gradient(to bottom, #F4E9D1, #F8F3E2);
+}
+
+.work-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.work-title {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 16px;
+    color: #FFFFFF;
+    background: #81B29A;
+    padding: 10px 20px;
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.2);
+    font-family: "Times New Roman", serif;
+    z-index: 10;
+    min-width: 140px;
+    transform-origin: top center;
+    border-radius: 4px;
+    animation: swinging 3s ease-in-out infinite;
+    /* 吊牌绳子效果 */
+    &::before {
+        content: '';
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        width: 2px;
+        height: 30px;
+        background: #D4C9A2;
+        transform: translateX(-50%);
+        transform-origin: top center;
+    }
+    /* 吊牌装饰孔 */
+    &::after {
+        content: '';
+        position: absolute;
+        top: -23px;
+        left: 50%;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #F4F1DE;
+        border: 1px solid #D4C9A2;
+        transform: translateX(-50%);
+    }
+}
+
+/* 定义晃动动画 */
+@keyframes swinging {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    25% {
+        transform: translateX(-50%) rotate(3deg);
+    }
+    50% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    75% {
+        transform: translateX(-50%) rotate(-3deg);
+    }
+    100% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+}
+
+/* 关于穆夏部分 */
+.about-section {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 30px;
+    margin: 30px 0;
+    min-height: 600px;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.image-gallery img {
+    width: 100%;
+    height: calc((100% - 40px) / 3);
+    object-fit: cover;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+/* Footer样式 */
+.footer-container {
+    background: #FFFFFF;
+    padding: 10px 0;
+    box-shadow: 0 -2px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    gap: 10px;
+}
+
+.footer-logo {
+    flex: 0 0 auto;
+}
+
+.footer-logo img {
+    max-height: 30px;
+    width: auto;
+}
+
+.footer-info {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.footer-info p {
+    margin: 1px 0;
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+.footer-qrcode {
+    flex: 0 0 auto;
+}
+
+.footer-qrcode img {
+    width: 25px;
+    height: 25px;
+    border-radius: 6px;
+}
+
+/* 响应式调整 */
+@media (max-width: 992px) {
+    .about-section {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+    
+    .video-container {
+        height: 0;
+        padding-top: 56.25%; /* 16:9 宽高比 */
+    }
+    
+    .image-gallery {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .image-gallery img {
+        width: calc((100% - 20px) / 2);
+        height: 200px;
+    }
+
+    .works-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .works-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 20px;
+        padding: 20px 0;
+    }
+    
+    .work-card {
+        padding-top: 40px;
+    }
+    
+    .work-title {
+        font-size: 14px;
+        padding: 8px 15px;
+        min-width: 120px;
+        top: 12px;
+    }
+    
+    .work-title::before {
+        height: 25px;
+        top: -25px;
+    }
+    
+    .work-title::after {
+        width: 6px;
+        height: 6px;
+        top: -19px;
+    }
+    
+    .work-card {
+        margin-bottom: 25px;
+    }
+    
+    .section-header {
+        padding: 12px 20px;
+    }
+    
+    .section-title {
+        font-size: 20px;
+    }
+    
+    .image-gallery {
+        flex-direction: column;
+    }
+    
+    .image-gallery img {
+        width: 100%;
+        height: 200px;
+    }
+}
+
+/* 悬浮效果 */
+.work-card:hover .work-title {
+    animation: swingingFaster 1.5s ease-in-out infinite;
+    background: #6A8C7D;
+    box-shadow: 3px 6px 12px rgba(0,0,0,0.25);
+}
+
+/* 定义悬浮时的快速晃动动画 */
+@keyframes swingingFaster {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    25% {
+        transform: translateX(-50%) rotate(5deg);
+    }
+    50% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    75% {
+        transform: translateX(-50%) rotate(-5deg);
+    }
+    100% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+}
+</style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header-container">
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="../image/logo/LOGO.jpg" alt="阿尔丰斯·穆夏艺术馆"/>
+            </div>
+            <nav class="nav-buttons">
+                <a href="首页.html" class="nav-button">首页</a>
+                <a href="作品展示.html" class="nav-button">作品展示</a>
+                <a href="read me.html" class="nav-button">readme</a>
+                <a href="登录.html" class="nav-button">登录</a>
+                <a href="关于穆夏.html" class="nav-button">关于穆夏</a>
+                <div class="nav-dropdown">
+                    <a href="巴洛克艺术.html" class="nav-button">巴洛克艺术</a>
+                    <div class="dropdown-content">
+                        <a href="#origin">起源</a>
+                        <a href="#features">特点</a>
+                        <a href="#masterpieces">代表作品</a>
+                        <a href="#influence">影响</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="洛可可艺术.html" class="nav-button">洛可可艺术</a>
+                    <div class="dropdown-content">
+                        <a href="#rococo-origin">起源</a>
+                        <a href="#rococo-features">特点</a>
+                        <a href="#rococo-masterpieces">代表作品</a>
+                        <a href="#rococo-influence">影响</a>
+                    </div>
+                </div>
+                <a href="联系我们.html" class="nav-button">联系我们</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="main-content">
+        <!-- 精选作品部分 -->
+        <div class="section-header">
+            <h2 class="section-title">精选作品</h2>
+            <a href="作品展示.html" class="section-more">更多 >>></a>
+        </div>
+        
+        <div class="works-grid">
+            <div class="work-card">
+                <div class="work-title">Don't Starve TOGETHER</div>
+                <div class="work-image-container">
+                    <img src="../image/花系列/百合.jpg" alt="百合" class="work-image">
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="work-title">Cyberpunk 2077</div>
+                <div class="work-image-container">
+                    <img src="../image/花系列/康乃馨.jpg" alt="康乃馨" class="work-image">
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="work-title">Grand Theft Auto V</div>
+                <div class="work-image-container">
+                    <img src="../image/花系列/玫瑰.jpg" alt="玫瑰" class="work-image">
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="work-title">DEVIL May CRY 5</div>
+                <div class="work-image-container">
+                    <img src="../image/花系列/鸢尾.jpg" alt="鸢尾" class="work-image">
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="work-title">Sid Meier's Civilization VI</div>
+                <div class="work-image-container">
+                    <img src="../image/新建文件夹/被偷走的海报.jpg" alt="被偷走的海报" class="work-image">
+                </div>
+            </div>
+        </div>
+
+        <!-- 关于穆夏部分 -->
+        <div class="section-header">
+            <h2 class="section-title">关于穆夏</h2>
+            <a href="关于穆夏.html" class="section-more">更多 >>></a>
+        </div>
+
+        <div class="about-section">
+            <div class="video-container">
+                <video controls autoplay loop>
+                    <source src="../swf/1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="image-gallery">
+                <img src="../image/横/Alfons MUCHA Svantovit Celebration on the Island of Rügen 1912.jpg" alt="穆夏作品1">
+                <img src="../image/横/Page37a_v1.jpg" alt="穆夏作品2">
+                <img src="../image/横/Page37b_v1.jpg" alt="穆夏作品3">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="../image/logo/LOGO.jpg" alt="阿尔丰斯·穆夏艺术馆"/>
+            </div>
+            <div class="footer-info">
+                <p>© 2025 FUNRIGHT。该网站所有商标均为李姚所有</p>
+                <p>学号：211008404112</p>
+                <p>班别：数媒2142</p>
+                <p>姓名：李姚</p>
+            </div>
+            <div class="footer-qrcode">
+                <img src="../image/logo/真趣完成.jpg" alt="二维码"/>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // 下拉菜单控制
+    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+        dropdown.addEventListener('mouseover', function() {
+            const menu = this.querySelector('.dropdown-content');
+            menu.style.opacity = '1';
+            menu.style.visibility = 'visible';
+        });
+
+        dropdown.addEventListener('mouseout', function() {
+            const menu = this.querySelector('.dropdown-content');
+            menu.style.opacity = '0';
+            menu.style.visibility = 'hidden';
+        });
+    });
+    </script>
+</body>
+</html>
